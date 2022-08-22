@@ -4,19 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 import notes.digerati.scribble.R;
+import notes.digerati.scribble.data.CardModel;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder>  {
 
     private Context context;
-    private int[] mNoteList;
+    private ArrayList<CardModel> mNoteList;
 
-    public RecyclerViewAdapter(Context context, int[] mNoteList) {
+    public RecyclerViewAdapter(Context context, ArrayList<CardModel> mNoteList) {
         this.context = context;
         this.mNoteList = mNoteList;
     }
@@ -30,14 +35,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.mNote.getResources().getResourceName(R.id.card_view);
-
+        CardModel model = mNoteList.get(position);
+        holder.title.setText(model.getTitle());
+        holder.date.setText(model.getDate());
     }
 
 
     @Override
     public int getItemCount() {
-        return mNoteList.length;
+        return mNoteList.size();
     }
 
 
@@ -46,9 +52,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     CardView mNote;
+    TextView title, date;
+    ImageButton colorPallet, icDelete;
 
     public RecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         mNote = itemView.findViewById(R.id.card_view);
+        title = itemView.findViewById(R.id.tv_text_title);
+        date = itemView.findViewById(R.id.tv_card_date);
+        colorPallet = itemView.findViewById(R.id.ib_pallet);
+        icDelete = itemView.findViewById(R.id.ib_delete);
     }
 }
