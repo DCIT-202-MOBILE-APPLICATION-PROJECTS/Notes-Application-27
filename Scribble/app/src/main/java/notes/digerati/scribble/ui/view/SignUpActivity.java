@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
                 validateData()
                 );
 
-        // configure progress dialog
+        // configure progressbar
         bar = new ProgressBar(this);
         bar.setVisibility(View.INVISIBLE);
 
@@ -86,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnSuccessListener(task -> {
 
                     // dismiss progress
-                    bar.setVisibility(View.INVISIBLE);
+                    bar.setVisibility(View.GONE);
 
                     FirebaseUser user = auth.getCurrentUser();
                     assert user != null;
@@ -101,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
                 .addOnFailureListener( e-> {
 
                     //signup failed
-                    bar.setVisibility(View.INVISIBLE);
+                    bar.setVisibility(View.GONE);
                     Toast.makeText(this,"Sign up failed due to " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }

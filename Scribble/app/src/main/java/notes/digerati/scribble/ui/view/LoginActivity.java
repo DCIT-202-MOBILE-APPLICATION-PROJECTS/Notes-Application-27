@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnSuccessListener( task -> {
 
                     // login successful
-                    bar.setVisibility(View.INVISIBLE);
+                    bar.setVisibility(View.GONE);
 
                     // get user info
                     FirebaseUser user = auth.getCurrentUser();
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnFailureListener( e -> {
 
                     // login failed
-                    bar.setVisibility(View.INVISIBLE);
+                    bar.setVisibility(View.GONE);
                     Toast.makeText(this,"Login failed due to " + e.getMessage(),
                             Toast.LENGTH_LONG).show();
                 });
