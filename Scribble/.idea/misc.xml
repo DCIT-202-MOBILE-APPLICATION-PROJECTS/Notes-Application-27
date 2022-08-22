@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application-27/Scribble/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application-27/Scribble/app/src/main/res/layout/activity_main.xml" value="0.2128623188405797" />
+        <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application-27/Scribble/app/src/main/res/layout/activity_sign_up.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application-27/Scribble/app/src/main/res/layout/activity_task.xml" value="0.264" />
         <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application-27/Scribble/app/src/main/res/layout/card_item.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/Kimi/Desktop/github/Notes-Application/Scribble/app/src/main/res/drawable/amber.xml" value="0.199" />
