@@ -25,4 +25,5 @@
     <string name="logged_in_as">Logged in as</string>
     <string name="username">email</string>
     <string name="sign_out">Sign Out</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
 </resources>
