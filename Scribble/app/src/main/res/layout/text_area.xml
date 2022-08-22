@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -28,20 +28,24 @@
         android:autofillHints="name" />
 
     <EditText
+        android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="9dp"
         android:paddingStart="20dp"
         android:paddingEnd="0dp"
         android:background="@drawable/layout_title"
         android:inputType="text|textMultiLine"
         android:textColor="@color/kFontColor"
+        android:textSize="11sp"
+        android:gravity="top"
         android:hint="@string/something"
+        android:minLines="39"
         android:fontFamily="@font/poppins"
         android:textColorHint="@color/kFontColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/et_title"
         android:autofillHints="name"/>
 
 

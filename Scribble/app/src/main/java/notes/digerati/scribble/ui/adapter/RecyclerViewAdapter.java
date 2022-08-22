@@ -14,14 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import notes.digerati.scribble.R;
-import notes.digerati.scribble.data.CardModel;
+import notes.digerati.scribble.data.NoteModel;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder>  {
 
     private Context context;
-    private ArrayList<CardModel> mNoteList;
+    private ArrayList<NoteModel> mNoteList;
 
-    public RecyclerViewAdapter(Context context, ArrayList<CardModel> mNoteList) {
+    public RecyclerViewAdapter(Context context, ArrayList<NoteModel> mNoteList) {
         this.context = context;
         this.mNoteList = mNoteList;
     }
@@ -35,9 +35,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        CardModel model = mNoteList.get(position);
+        NoteModel model = mNoteList.get(position);
         holder.title.setText(model.getTitle());
-        holder.date.setText(model.getDate());
+        holder.date.setText(model.getTimestamp().toString());
     }
 
 

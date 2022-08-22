@@ -12,14 +12,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 import notes.digerati.scribble.R;
-import notes.digerati.scribble.data.CardModel;
+import notes.digerati.scribble.data.NoteModel;
 import notes.digerati.scribble.ui.adapter.RecyclerViewAdapter;
 import notes.digerati.scribble.databinding.ActivityTaskBinding;
 
 public class TaskActivity extends AppCompatActivity {
 
     ActivityTaskBinding binding;
-    ArrayList<CardModel> mNoteList;
+    ArrayList<NoteModel> mNoteList;
     DatabaseReference mDatabaseRef;
 
 
