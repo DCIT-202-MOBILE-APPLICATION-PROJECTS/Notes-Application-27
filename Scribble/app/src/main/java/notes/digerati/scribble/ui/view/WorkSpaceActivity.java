@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+
 import notes.digerati.scribble.R;
 import notes.digerati.scribble.data.NoteModel;
+import notes.digerati.scribble.data.Utility;
 import notes.digerati.scribble.databinding.ActivityWorkSpaceBinding;
 
 public class WorkSpaceActivity extends AppCompatActivity {
@@ -39,6 +43,24 @@ public class WorkSpaceActivity extends AppCompatActivity {
         NoteModel model = new NoteModel();
         model.setTitle(noteTitle);
         model.setContent(noteContent);
+        model.setTimestamp(Timestamp.now());
 
+        saveNoteToFirebase(model);
+
+    }
+
+    void saveNoteToFirebase(NoteModel note) {
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForNotes().document();
+
+        documentReference.set(note).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // note is added
+                Utility.showToast(WorkSpaceActivity.this, "Note added successfully");
+                finish();
+            } else {
+                Utility.showToast(WorkSpaceActivity.this, "Failed whilst adding note");
+            }
+        });
     }
 }
