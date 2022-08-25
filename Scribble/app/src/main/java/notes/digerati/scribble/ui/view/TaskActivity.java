@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
@@ -23,7 +21,7 @@ public class TaskActivity extends AppCompatActivity {
 
     ActivityTaskBinding binding;
     ArrayList<NoteModel> mNoteList;
-    DatabaseReference mDatabaseRef;
+    // DatabaseReference mDatabaseRef;
     RecyclerView mRecyclerView = findViewById(R.id.recyclerView);;
     RecyclerViewAdapter mRecyclerViewAdapter;
 
