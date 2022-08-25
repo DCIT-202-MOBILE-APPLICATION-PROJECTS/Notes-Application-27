@@ -7,7 +7,7 @@ public class NoteModel {
     private String title;
     private int color;
     private String content;
-    Timestamp timestamp;
+    private Timestamp timestamp;
 
 //    public NoteModel(String title, int color) {
 //        this.title = title;

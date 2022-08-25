@@ -35,6 +35,7 @@ public class TaskActivity extends AppCompatActivity {
 //        // initialise firebase database
 //        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
+        setupRecyclerView();
 
     }
 

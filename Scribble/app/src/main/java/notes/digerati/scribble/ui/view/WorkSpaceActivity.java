@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
@@ -17,7 +18,9 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
     ActivityWorkSpaceBinding binding;
     EditText etTitle, etContent;
+    ImageButton imageButton;
     String title, content, docId;
+    int color;
     boolean isEditMode = false;
 
     @Override
@@ -28,11 +31,13 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
         etTitle = findViewById(R.id.et_title);
         etContent = findViewById(R.id.et_content);
+        imageButton = findViewById(R.id.ib_pallet);
 
         // receive data
         title = getIntent().getStringExtra("title");
         content = getIntent().getStringExtra("content");
         docId = getIntent().getStringExtra("docId");
+        color = getIntent().getIntExtra("color", R.drawable.amber);
 
         if (docId != null && !docId.isEmpty()) {
             isEditMode = true;
@@ -40,6 +45,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
         etTitle.setText(title);
         etContent.setText(content);
+        imageButton.setImageResource(color);
 
         binding.btnSave.setOnClickListener(view -> saveNote());
     }

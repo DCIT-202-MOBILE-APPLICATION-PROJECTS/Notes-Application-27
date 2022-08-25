@@ -52,10 +52,12 @@ public class RecyclerViewAdapter extends FirestoreRecyclerAdapter<NoteModel, Rec
         holder.title.setText(model.getTitle());
         holder.mNote.setCardElevation(0.5F);
         holder.date.setText(Utility.timeStampToString(model.getTimestamp()));
+        holder.colorPallet.setImageResource(model.getColor());
         holder.itemView.setOnClickListener( view -> {
             Intent intent = new Intent(context, WorkSpaceActivity.class);
             intent.putExtra("title",model.getTitle());
             intent.putExtra("content",model.getContent());
+            intent.putExtra("color", model.getColor());
             String docId = this.getSnapshots().getSnapshot(position).getId();
             intent.putExtra("docId", docId);
             context.startActivity(intent);
