@@ -17,6 +17,8 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
     ActivityWorkSpaceBinding binding;
     EditText etTitle, etContent;
+    String title, content, docId;
+    boolean isEditMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,18 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
         etTitle = findViewById(R.id.et_title);
         etContent = findViewById(R.id.et_content);
+
+        // receive data
+        title = getIntent().getStringExtra("title");
+        content = getIntent().getStringExtra("content");
+        docId = getIntent().getStringExtra("docId");
+
+        if (docId != null && !docId.isEmpty()) {
+            isEditMode = true;
+        }
+
+        etTitle.setText(title);
+        etContent.setText(content);
 
         binding.btnSave.setOnClickListener(view -> saveNote());
     }
@@ -51,7 +65,14 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
     void saveNoteToFirebase(NoteModel note) {
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNotes().document();
+        if (isEditMode) {
+            // update the note
+            documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+        } else {
+            // create a new note
+            documentReference = Utility.getCollectionReferenceForNotes().document();
+        }
+
 
         documentReference.set(note).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
