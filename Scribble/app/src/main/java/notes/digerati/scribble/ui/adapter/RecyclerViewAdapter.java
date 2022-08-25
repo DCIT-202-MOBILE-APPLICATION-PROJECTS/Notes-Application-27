@@ -25,14 +25,14 @@ import notes.digerati.scribble.data.Utility;
 public class RecyclerViewAdapter extends FirestoreRecyclerAdapter<NoteModel, RecyclerViewHolder> {
 
     private Context context;
-    // private final ArrayList<NoteModel> mNoteList;
+     private final ArrayList<NoteModel> mNoteList;
 
     public RecyclerViewAdapter(Context context,
-                              // ArrayList<NoteModel> mNoteList,
+                              ArrayList<NoteModel> mNoteList,
                                @Nullable FirestoreRecyclerOptions<NoteModel> options) {
         super(Objects.requireNonNull(options));
         this.context = context;
-       // this.mNoteList = mNoteList;
+       this.mNoteList = mNoteList;
     }
 
 
@@ -47,7 +47,7 @@ public class RecyclerViewAdapter extends FirestoreRecyclerAdapter<NoteModel, Rec
     @Override
     protected void onBindViewHolder(@NonNull RecyclerViewHolder holder,
                                     int position, @NonNull NoteModel model) {
-        // model = mNoteList.get(position);
+        model = mNoteList.get(position);
         holder.title.setText(model.getTitle());
         holder.mNote.setCardElevation(0.5F);
         holder.date.setText(Utility.timeStampToString(model.getTimestamp()));
@@ -56,8 +56,7 @@ public class RecyclerViewAdapter extends FirestoreRecyclerAdapter<NoteModel, Rec
 
     @Override
     public int getItemCount() {
-        // return mNoteList.size();
-        return 0;
+        return mNoteList.size();
     }
 
 

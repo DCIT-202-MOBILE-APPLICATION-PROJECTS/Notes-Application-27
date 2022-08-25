@@ -48,7 +48,7 @@ public class TaskActivity extends AppCompatActivity {
         GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
 
-        mRecyclerViewAdapter = new RecyclerViewAdapter( this, options);
+        mRecyclerViewAdapter = new RecyclerViewAdapter( this, mNoteList, options);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
 
     }
