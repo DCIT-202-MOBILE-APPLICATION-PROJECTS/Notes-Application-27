@@ -8,42 +8,56 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 import notes.digerati.scribble.R;
 import notes.digerati.scribble.data.NoteModel;
+import notes.digerati.scribble.data.Utility;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder>  {
+public class RecyclerViewAdapter extends FirestoreRecyclerAdapter<NoteModel, RecyclerViewHolder> {
 
     private Context context;
-    private ArrayList<NoteModel> mNoteList;
+    // private final ArrayList<NoteModel> mNoteList;
 
-    public RecyclerViewAdapter(Context context, ArrayList<NoteModel> mNoteList) {
+    public RecyclerViewAdapter(Context context,
+                              // ArrayList<NoteModel> mNoteList,
+                               @Nullable FirestoreRecyclerOptions<NoteModel> options) {
+        super(Objects.requireNonNull(options));
         this.context = context;
-        this.mNoteList = mNoteList;
+       // this.mNoteList = mNoteList;
     }
+
 
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.save_area, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item, parent, false);
         return new RecyclerViewHolder(view);
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        NoteModel model = mNoteList.get(position);
+    protected void onBindViewHolder(@NonNull RecyclerViewHolder holder,
+                                    int position, @NonNull NoteModel model) {
+        // model = mNoteList.get(position);
         holder.title.setText(model.getTitle());
-        holder.date.setText(model.getTimestamp().toString());
+        holder.mNote.setCardElevation(0.5F);
+        holder.date.setText(Utility.timeStampToString(model.getTimestamp()));
     }
 
 
     @Override
     public int getItemCount() {
-        return mNoteList.size();
+        // return mNoteList.size();
+        return 0;
     }
 
 
