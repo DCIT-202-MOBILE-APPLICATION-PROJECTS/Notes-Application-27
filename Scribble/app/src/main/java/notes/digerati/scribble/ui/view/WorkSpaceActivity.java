@@ -54,15 +54,18 @@ public class WorkSpaceActivity extends AppCompatActivity {
     void saveNote(){
         String noteTitle = etTitle.getText().toString();
         String noteContent = etContent.getText().toString();
+        int color = imageButton.getSolidColor();
 
 
-        if (noteTitle.isEmpty()) {
+        if (noteTitle.isEmpty() && noteContent.isEmpty()) {
             etTitle.setError("Title cannot be empty");
+            etContent.setError("Please type something");
         }
 
         NoteModel model = new NoteModel();
         model.setTitle(noteTitle);
         model.setContent(noteContent);
+        model.setColor(color);
         model.setTimestamp(Timestamp.now());
 
         saveNoteToFirebase(model);
