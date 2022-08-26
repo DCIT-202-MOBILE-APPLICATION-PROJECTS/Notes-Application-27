@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.welcomeBtn.setOnClickListener(view -> {
             startActivity(new Intent(this, SignUpActivity.class));
-        });
+    });
 
     }
 }

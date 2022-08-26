@@ -40,7 +40,7 @@ public class TaskActivity extends AppCompatActivity {
     }
 
 
-    void setupRecyclerView() {
+    private void setupRecyclerView() {
         Query query = Utility.getCollectionReferenceForNotes().orderBy("timestamp", Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<NoteModel> options = new FirestoreRecyclerOptions.Builder<NoteModel>()
                 .setQuery(query, NoteModel.class).build();

@@ -59,6 +59,7 @@
             android:layout_margin="10dp"
             android:src="@drawable/pallet_pressed"
             android:background="@drawable/violet"
+            android:tag="violet"
             android:contentDescription="@string/app_name" />
 
         <ImageButton
@@ -67,6 +68,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/indigo"
             android:src="@drawable/pallet_normal"
+            android:tag="indigo"
             android:contentDescription="@string/app_name" />
         <ImageButton
             android:layout_width="20dp"
@@ -74,6 +76,7 @@
             android:layout_margin="10dp"
             android:src="@drawable/pallet_normal"
             android:background="@drawable/red"
+            android:tag="red"
             android:contentDescription="@string/app_name" />
         <ImageButton
             android:layout_width="20dp"
@@ -81,6 +84,7 @@
             android:layout_margin="10dp"
             android:src="@drawable/pallet_normal"
             android:background="@drawable/green"
+            android:tag="green"
             android:contentDescription="@string/app_name" />
         <ImageButton
             android:layout_width="20dp"
@@ -88,6 +92,7 @@
             android:layout_margin="10dp"
             android:src="@drawable/pallet_normal"
             android:background="@drawable/amber"
+            android:tag="amber"
             android:contentDescription="@string/app_name" />
 
 

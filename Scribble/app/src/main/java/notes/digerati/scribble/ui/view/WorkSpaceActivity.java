@@ -51,7 +51,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
     }
 
 
-    void saveNote(){
+    private void saveNote(){
         String noteTitle = etTitle.getText().toString();
         String noteContent = etContent.getText().toString();
         int color = imageButton.getSolidColor();
@@ -72,7 +72,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
     }
 
-    void saveNoteToFirebase(NoteModel note) {
+    private void saveNoteToFirebase(NoteModel note) {
         DocumentReference documentReference;
         if (isEditMode) {
             // update the note
