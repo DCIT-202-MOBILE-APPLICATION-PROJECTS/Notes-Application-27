@@ -37,6 +37,12 @@ public class WorkSpaceActivity extends AppCompatActivity {
     //     LinearLayout linearLayoutColors = findViewById(R.id.ll_colors);
    //    mImageButtonCurrentPaint = (ImageButton) linearLayoutColors[1];
 
+        binding.violet.setOnClickListener(this::paintClicked);
+        binding.indigo.setOnClickListener(this::paintClicked);
+        binding.green.setOnClickListener(this::paintClicked);
+        binding.red.setOnClickListener(this::paintClicked);
+        binding.amber.setOnClickListener(this::paintClicked);
+
         etTitle = findViewById(R.id.et_title);
         etContent = findViewById(R.id.et_content);
         mImageButtonCurrentPaint = findViewById(R.id.ib_pallet);
