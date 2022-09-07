@@ -6,7 +6,7 @@
 
         <item name="windowSplashScreenAnimationDuration">3000</item>
 
-        <item name="windowSplashScreenAnimatedIcon">@drawable/scribble</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_baseline_notes_24</item>
 
         <item name="postSplashScreenTheme">@style/Theme.AppCompat.Scribble</item>
     </style>
