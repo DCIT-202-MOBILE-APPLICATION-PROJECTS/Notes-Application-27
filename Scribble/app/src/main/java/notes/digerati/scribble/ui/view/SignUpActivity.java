@@ -35,9 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
-        binding.btnSignUp.setOnClickListener( view ->
-                validateData()
-                );
+        binding.btnSignUp.setOnClickListener( view -> validateData());
 
         // configure progressbar
         bar = new ProgressBar(this);
