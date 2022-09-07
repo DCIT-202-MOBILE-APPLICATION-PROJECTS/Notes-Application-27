@@ -34,8 +34,8 @@ public class WorkSpaceActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        LinearLayout linearLayoutColors = findViewById(R.id.ll_colors);
-        mImageButtonCurrentPaint = (ImageButton) linearLayoutColors[1];
+    //     LinearLayout linearLayoutColors = findViewById(R.id.ll_colors);
+   //    mImageButtonCurrentPaint = (ImageButton) linearLayoutColors[1];
 
         etTitle = findViewById(R.id.et_title);
         etContent = findViewById(R.id.et_content);
