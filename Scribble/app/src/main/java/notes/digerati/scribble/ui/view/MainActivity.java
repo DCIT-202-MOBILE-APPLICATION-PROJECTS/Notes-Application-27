@@ -23,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         setContentView(binding.getRoot());
 
-        binding.welcomeBtn.setOnClickListener(view -> {
-            startActivity(new Intent(this, SignUpActivity.class));
-    });
+        binding.welcomeBtn.setOnClickListener(view -> startActivity(new Intent(this, SignUpActivity.class)));
 
     }
 }
