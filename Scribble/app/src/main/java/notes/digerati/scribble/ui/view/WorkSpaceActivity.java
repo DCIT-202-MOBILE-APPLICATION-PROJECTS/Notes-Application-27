@@ -1,10 +1,14 @@
 package notes.digerati.scribble.ui.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
@@ -18,7 +22,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
     ActivityWorkSpaceBinding binding;
     EditText etTitle, etContent;
-    ImageButton imageButton;
+    ImageButton mImageButtonCurrentPaint;
     String title, content, docId;
     int color;
     boolean isEditMode = false;
@@ -29,9 +33,13 @@ public class WorkSpaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
+
+        LinearLayout linearLayoutColors = findViewById(R.id.ll_colors);
+        mImageButtonCurrentPaint = (ImageButton) linearLayoutColors[1];
+
         etTitle = findViewById(R.id.et_title);
         etContent = findViewById(R.id.et_content);
-        imageButton = findViewById(R.id.ib_pallet);
+        mImageButtonCurrentPaint = findViewById(R.id.ib_pallet);
 
         // receive data
         title = getIntent().getStringExtra("title");
@@ -45,7 +53,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
 
         etTitle.setText(title);
         etContent.setText(content);
-        imageButton.setImageResource(color);
+        mImageButtonCurrentPaint.setImageResource(color);
 
         binding.btnSave.setOnClickListener(view -> saveNote());
     }
@@ -54,7 +62,7 @@ public class WorkSpaceActivity extends AppCompatActivity {
     private void saveNote(){
         String noteTitle = etTitle.getText().toString();
         String noteContent = etContent.getText().toString();
-        int color = imageButton.getSolidColor();
+        int color = mImageButtonCurrentPaint.getSolidColor();
 
 
         if (noteTitle.isEmpty() && noteContent.isEmpty()) {
@@ -92,5 +100,28 @@ public class WorkSpaceActivity extends AppCompatActivity {
                 Utility.showToast(WorkSpaceActivity.this, "Failed whilst adding note");
             }
         });
+    }
+
+    private void paintClicked(View view) {
+        Toast.makeText(this, "paint clicked", Toast.LENGTH_SHORT).show();
+        if (view != mImageButtonCurrentPaint) {
+            ImageButton imageButton = (ImageButton) view;
+            String colorTag = imageButton.getTag().toString();
+            imageButton.setImageDrawable(
+                    ContextCompat.getDrawable(
+                            this,
+                            R.drawable.pallet_pressed
+                    )
+            );
+
+            mImageButtonCurrentPaint.setImageDrawable(
+                    ContextCompat.getDrawable(
+                            this,
+                            R.drawable.pallet_normal
+                    )
+            );
+
+            mImageButtonCurrentPaint = (ImageButton) view;
+        }
     }
 }
