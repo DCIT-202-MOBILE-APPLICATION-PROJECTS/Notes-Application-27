@@ -2,6 +2,7 @@ package notes.digerati.scribble.ui.view;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_AppCompat_Scribble);
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         setContentView(binding.getRoot());
 
         binding.welcomeBtn.setOnClickListener(view -> {
